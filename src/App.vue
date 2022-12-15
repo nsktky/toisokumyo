@@ -5,6 +5,7 @@
       <router-link to="/about">About</router-link>
     </nav>
     <router-view/>
+    <P5View />
   </div>
 </template>
 
@@ -15,6 +16,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: #d8d8d8;
 }
 
 nav {
@@ -30,3 +32,13 @@ nav {
   }
 }
 </style>
+
+<script>
+import P5View from '@/components/P5View'
+
+export default {
+  components: {
+    P5View,
+  },
+}
+</script>

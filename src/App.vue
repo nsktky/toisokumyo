@@ -1,10 +1,12 @@
 <template>
   <div id="app">
     <nav>
+      <div class="title">
+        <h1>to_i_soku_myo</h1>
+      </div>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/work">Work</router-link> |
-      <router-link to="/admin">Admin</router-link>
+      <router-link to="/work">Work</router-link>
     </nav>
     <router-view/>
     <P5View />
@@ -18,11 +20,11 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-color: #d8d8d8;
+  background-color: #e8e8e8;
 }
 
 nav {
-  padding: 30px;
+  padding: 1rem;
 
   a {
     font-weight: bold;
@@ -32,6 +34,9 @@ nav {
       color: #42b983;
     }
   }
+}
+.title{
+  margin-bottom: 1rem;
 }
 </style>
 

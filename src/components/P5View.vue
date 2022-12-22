@@ -78,6 +78,7 @@ export default {
     margin: 0;
     padding: 0;
     line-height:0;
+    background-color: #d8d8d8;
     /* position: relative; */
 }
 </style>

@@ -8,7 +8,7 @@
 <style scoped>
 .about {
   width: 100%;
-  margin: 5% auto;
+  margin-top: 1rem;
   padding: auto;
   position: absolute;
 }

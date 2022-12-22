@@ -1,12 +1,12 @@
 <template>
-  <div class="about">
-    <h1>about</h1>
+  <div class="admin">
+    <h1>Admin</h1>
 
   </div>
 </template>
 
 <style scoped>
-.about {
+.admin {
   width: 100%;
   margin: 5% auto;
   padding: auto;

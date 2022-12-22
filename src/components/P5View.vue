@@ -3,6 +3,7 @@
     <vue-p5
         @setup="setup"
         @draw="draw"
+        @windowresized="windowresized"
     >
     </vue-p5>
   </div>
@@ -29,8 +30,7 @@ export default {
   methods: {
     setup(sketch) {
       // canvasのサイズはwindow準拠.
-      const canvas = sketch.createCanvas(sketch.windowWidth, sketch.windowHeight);
-      canvas.parent("p5Canvas");
+      sketch.createCanvas(sketch.windowWidth, sketch.windowHeight);
       // 背景など各種基本設定
       sketch.background(200);
       sketch.stroke(0);
@@ -65,6 +65,10 @@ export default {
       }
       sketch.endShape(sketch.CLOSE);
     },
+    // ウィンドウリがリサイズされたらcanvasもリサイズする
+    windowresized(sketch) {
+      sketch.resizeCanvas(sketch.windowWidth, sketch.windowHeight);
+    }
   }
 };
 </script>

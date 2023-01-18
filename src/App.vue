@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav>
-      <div class="title">
+      <div class="pagename">
         <h1>to_i_soku_myo</h1>
       </div>
       <router-link to="/">Home</router-link> |
@@ -35,7 +35,7 @@ nav {
     }
   }
 }
-.title{
+.pagename{
   margin-bottom: 1rem;
 }
 </style>

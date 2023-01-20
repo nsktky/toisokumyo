@@ -23,7 +23,17 @@
             LOGIN
           </v-btn>
 
-          <v-btn> CLEAR </v-btn>
+          <v-btn @click="reset"> CLEAR </v-btn>
+
+          <v-btn
+            color="warning"
+            class="logout-btn"
+            @click="logout"
+            :disabled="isValid"
+          >
+            LOGOUT
+          </v-btn>
+
           <v-alert
             dense
             text
@@ -65,6 +75,9 @@
 .login-btn {
   margin-right: 10px;
 }
+.logout-btn {
+  margin: 10px;
+}
 .success-message {
   margin-top: 20px;
 }
@@ -78,11 +91,6 @@ import firebase from "@/firebase/firebase";
 export default {
   data: () => ({
     valid: true,
-    name: "",
-    nameRules: [
-      (v) => !!v || "Name is required",
-      (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
-    ],
     email: "",
     emailRules: [
       (v) => !!v || "メールアドレスを入力してください",
@@ -136,6 +144,18 @@ export default {
           this.errorMessage = "ログインに失敗しました"
         });
     },
+    logout() {
+      console.log("logout");
+      firebase.auth()
+      .signOut()
+      .then(() => {
+        localStorage.message = "ログアウトに成功しました"
+        this.$router.push("/")
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    }
   },
 };
 </script>

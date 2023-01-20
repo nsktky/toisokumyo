@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import WorkView from '../views/WorkView.vue'
 import AdminView from '../views/AdminView.vue'
+import AdminUpload from '../views/AdminUpload.vue'
 
 
 Vue.use(VueRouter)
@@ -30,7 +31,12 @@ const routes = [
     path: '/admin',
     name: 'admin',
     component: AdminView
-  }
+  },
+  {
+    path: '/admin_upload',
+    name: 'admin_upload',
+    component: AdminUpload
+  },
 ]
 
 const router = new VueRouter({

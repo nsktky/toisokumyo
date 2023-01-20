@@ -4,6 +4,8 @@ import HomeView from '../views/HomeView.vue'
 import WorkView from '../views/WorkView.vue'
 import AdminView from '../views/AdminView.vue'
 import AdminUpload from '../views/AdminUpload.vue'
+import firebase from "@/firebase/firebase"
+
 
 
 Vue.use(VueRouter)
@@ -35,7 +37,8 @@ const routes = [
   {
     path: '/admin_upload',
     name: 'admin_upload',
-    component: AdminUpload
+    component: AdminUpload,
+    meta: { requiresAuth: true }
   },
 ]
 
@@ -43,6 +46,28 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+// 管理者ログイン時にしかadminを表示させないようなメソッド
+router.beforeEach((to, from, next) => {
+  // requiresAuthにroutesのrecodeを格納
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+  // ログインが必要なページであればifに進む
+  if (requiresAuth) {
+    // ログインチェック。もしされていないならば、adminにリダイレクト
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
+        next({
+          path: '/admin',
+          query: { redirect: to.fullPath }
+        })
+      } else {
+        next()
+      }
+    })
+  } else {
+    next() // next() を常に呼び出すようにしてください!
+  }
 })
 
 export default router

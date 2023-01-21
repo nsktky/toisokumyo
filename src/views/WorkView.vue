@@ -3,20 +3,17 @@
   <v-app id="inspire" class="work">
     <v-main class="grey lighten-3">
       <v-container>
-        <v-row justify="center" align-content="center">
-            <!-- v-forでworksの各要素をitemに格納 -->
-          <v-col
-            v-for="item in works" :key="item.src"
-          >
-            <v-card  height="80vh">
-                <!-- itemsから表示するデータを取り出す -->
-                <a v-bind:href="item.url">
-                  <v-img :src="item" height="80vh"></v-img>
-                </a>
-                {{ item.title }}
-            </v-card>
-          </v-col>
-        </v-row>
+        <v-col
+          v-for="item in works" :key="item.src"
+        >
+          <v-card  height="80vh">
+              <!-- itemsから表示するデータを取り出す -->
+              <a v-bind:href="item.url">
+                <v-img :src="item" height="80vh"></v-img>
+              </a>
+              {{ item.title }}
+          </v-card>
+        </v-col>
       </v-container>
       <div style="margin: 1rem" class="text-h5">
         <a href="https://neort.io/@IWD3ncMyhLhqMb7dInMwosr9Yw92">more</a>

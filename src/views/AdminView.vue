@@ -127,8 +127,6 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then((result) => {
-          console.log("success");
-          console.log("user", result.user);
           const auth = {
             displayName: result.user.displayName,
             email: result.user.email,
@@ -145,12 +143,11 @@ export default {
         });
     },
     logout() {
-      console.log("logout");
       firebase.auth()
       .signOut()
       .then(() => {
         localStorage.message = "ログアウトに成功しました"
-        this.$router.push("/")
+        this.$router.push("admin")
       })
       .catch((error) => {
         console.log(error)

@@ -100,12 +100,6 @@ export default {
     message: "",
     errorMessage: "",
   }),
-  mounted() {
-    if (localStorage.message) {
-      this.message = localStorage.message;
-      localStorage.message = "";
-    }
-  },
   computed: {
     isValid() {
       return !this.valid;
@@ -116,41 +110,52 @@ export default {
       this.$refs.form.validate();
     },
     reset() {
+      this.message = ""
+      this.errorMessage = ""
       this.$refs.form.reset();
     },
     resetValidation() {
       this.$refs.form.resetValidation();
     },
     submit() {
-      console.log("submit call");
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then((result) => {
-          const auth = {
-            displayName: result.user.displayName,
-            email: result.user.email,
-            uid: result.user.uid,
-            refreshToken: result.user.refreshToken,
-          }
-          // authをセッションストレージで管理
-          sessionStorage.setItem('user', JSON.stringify(auth))
-          this.$router.push('admin_upload')
-        })
-        .catch((error) => {
-          console.log("fail", error);
-          this.errorMessage = "ログインに失敗しました"
-        });
+      this.message = ""
+      this.errorMessage = ""
+      if(this.emaill || this.password) {
+        console.log("submit call");
+        firebase
+          .auth()
+          .signInWithEmailAndPassword(this.email, this.password)
+          .then(async result => {
+            console.log(result)
+            // const auth = {
+            //   displayName: result.user.displayName,
+            //   email: result.user.email,
+            //   uid: result.user.uid,
+            //   refreshToken: result.user.refreshToken,
+            // }
+            // await sessionStorage.setItem('user', JSON.stringify(auth))
+            this.$router.push('admin_upload')
+          })
+          .catch((error) => {
+            console.log("fail", error);
+            this.errorMessage = "ログインに失敗しました"
+          });
+      } else {
+        this.errorMessage = "入力して下さい"
+      }
     },
     logout() {
+      this.message = ""
+      this.errorMessage = ""
       firebase.auth()
       .signOut()
       .then(() => {
-        localStorage.message = "ログアウトに成功しました"
-        this.$router.push("admin")
+        this.message = "ログアウトに成功しました"
+        // await this.$router.push("/")
       })
       .catch((error) => {
         console.log(error)
+        this.errorMessage = "ログアウトできませんでした"
       })
     }
   },

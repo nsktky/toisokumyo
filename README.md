@@ -40,6 +40,7 @@ Creative Codingとは、プログラムを用いて作品(Generative Art)を制�
 * adminページを実装。ログイン機能を設計。Firebase上のルール設定で、管理者のみにwrite権限を付与
 * Firebaseコンソールで操作せずにWork用のデータをアップロードできるよう、uploadページを実装
 * 上記uploadページにはログイン状態でのみアクセスできるよう設定。未ログイン時はリダイレクト処理を実行するよう設計
+* Firebase　Hostingでデプロイ
 
 ## 改善点
 * ブログなどのコンテンツを増やしたい

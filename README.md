@@ -6,10 +6,13 @@ https://toisokumyo-cf376.web.app/
 to_i_soku_myoは、私が制作したCreative Codingの作品を紹介するサイトです。
 
 ## 使用技術
-* vue 2.7.7
+* npm 8.19.3
+* vue 2.7.14
+* vue cli 5.0.8
 * vue-p5 0.8.4
-* vue-router 3.5.1
-* vuetify 2.6.0
+* vue-router 3.6.5
+* vuetify 2.6.12
+* firebase 8.10.1
 
 ## 当サイトの作成理由
 私は2021年12月から毎日Creative Codingを行い、作品を制作しています。  

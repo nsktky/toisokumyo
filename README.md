@@ -23,7 +23,7 @@ Creative Codingとは、プログラムを用いて作品(Generative Art)を制�
 ## コンテンツ一覧
 <dl>
   <dt>Home</dt>
-  <dd>Generative Artを全面に表示。</dd>
+  <dd>Generative Artを全面に表示</dd>
   <dt>About</dt>
   <dd>プロフィールやスキルを掲載</dd>
   <dt>Work</dt>

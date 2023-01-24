@@ -36,7 +36,7 @@ Creative Codingとは、プログラムを用いて作品(Generative Art)を制�
 * vue-routerを使用しルーティングを実現
 * Homeにはvue-p5を使用しGenerative Artを表示。各ページに切り替えてもアニメーションが継続されるよう設定
 * vue-p5内でHTML側のcanvasタグを作成。canvas要素としてアニメーションを描画
-* Firebase　FirestoreおよびStorageでWork　に表示するデータを管理
+* FirebaseのFirestoreおよびStorageでWorkに表示するデータを管理
 * adminページを実装。ログイン機能を設計。Firebase上のルール設定で、管理者のみにwrite権限を付与
 * Firebaseコンソールで操作せずにWork用のデータをアップロードできるよう、uploadページを実装
 * 上記uploadページにはログイン状態でのみアクセスできるよう設定。未ログイン時はリダイレクト処理を実行するよう設計
